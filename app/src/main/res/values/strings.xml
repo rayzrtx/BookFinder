@@ -1,3 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">BookFinder</string>
+    <string name="welcome">Welcome to BookFinder!</string>
+    <string name="question">What type of books are you looking for?</string>
+    <string name="search_field_hint">Please enter a topic</string>
+    <string name="search_button_text">Search</string>
+    <string name="no_books">No Books Found</string>
 </resources>
