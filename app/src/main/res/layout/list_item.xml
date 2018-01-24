@@ -7,25 +7,27 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="100dp">
+        android:layout_height="100dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp">
 
         <TextView
             android:id="@+id/book_title_view"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="24sp"
+            android:textSize="16sp"
             tools:text="Title of Book"
-            android:layout_marginLeft="8dp"
             android:textStyle="bold"
-            android:textColor="#000"/>
+            android:textColor="#000"
+            android:ellipsize="end"
+            android:maxLines="1"/>
 
         <ImageView
             android:id="@+id/book_cover_view"
             android:layout_width="60dp"
             android:layout_height="match_parent"
             android:layout_below="@+id/book_title_view"
-            tools:background="@drawable/book_thumbnail_example"
-            android:layout_marginLeft="8dp"/>
+            tools:background="@drawable/book_thumbnail_example" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -46,7 +48,7 @@
             android:layout_toRightOf="@+id/book_cover_view"
             android:layout_marginLeft="8dp"
             android:ellipsize="end"
-            android:maxLines="2"/>
+            android:maxLines="3"/>
 
     </RelativeLayout>
 

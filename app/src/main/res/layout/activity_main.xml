@@ -30,7 +30,7 @@
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:inputType="text"
+        android:inputType="textCapWords"
         android:hint="@string/search_field_hint"
         android:layout_below="@+id/question"
         android:layout_marginLeft="16dp"

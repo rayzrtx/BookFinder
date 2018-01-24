@@ -152,31 +152,31 @@ public class QueryUtils {
             //which represents a list of items (or Books)
             JSONArray itemsArray = jsonRootObject.optJSONArray("items");
 
-            //For each earthquake in the itemsArray, create an {@link Book} object
+            //For each Book in the itemsArray, create an {@link Book} object
             for (int i = 0; i < itemsArray.length(); i++){
                 //Get the JSON object in the items array at index i
-                JSONObject bookObject = itemsArray.getJSONObject(i);
+                JSONObject bookObject = itemsArray.optJSONObject(i);
                 //Get the volume info object in the book object
                 JSONObject volumeInfoObject = bookObject.optJSONObject("volumeInfo");
 
                 //Get the value of "title" from the volume info object
-                String title = volumeInfoObject.getString("title");
+                String title = volumeInfoObject.optString("title");
 
                 //Get the authors array from the volume info object
                 JSONArray authorsArray = volumeInfoObject.optJSONArray("authors");
                 //Get the value of authors array at index 0
-                JSONObject authorsObject = authorsArray.getJSONObject(0);
-                String author = authorsObject.toString();
+                String author = authorsArray.optString(0);
+
 
                 //Get the value of "Description" from volume info object
-                String description = volumeInfoObject.getString("description");
+                String description = volumeInfoObject.optString("description");
                 //Get the value of "infoLink" from volume info object
-                String infoLink = volumeInfoObject.getString("infoLink");
+                String infoLink = volumeInfoObject.optString("infoLink");
 
                 //Get the image links object from the volume info object
                 JSONObject imagesObject = volumeInfoObject.optJSONObject("imageLinks");
                 //Get the value of "smallThumbnail" from images object
-                String bookThumbnailLink = imagesObject.getString("smallThumbnail");
+                String bookThumbnailLink = imagesObject.optString("smallThumbnail");
 
                 books.add(new Book(title, author, description, infoLink, bookThumbnailLink));
             }
@@ -184,7 +184,9 @@ public class QueryUtils {
             // If an error is thrown when executing any of the above statements in the "try" block,
             // catch the exception here, so the app doesn't crash. Print a log message
             // with the message from the exception.
-            Log.e("QueryUtils", "Problem parsing the earthquake JSON results", e);
+            Log.e("QueryUtils", "Problem parsing the Book JSON results", e);
+        } catch (NullPointerException e){
+            Log.e("QueryUtils", "There was an unacceptable Null object", e);
         }
         return books;
     }
